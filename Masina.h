@@ -2,6 +2,7 @@
 // Created by andrei on 16.07.2021.
 //
 #include "Persoana.h"
+#include <iostream>
 #include<string>
 using namespace std;
 #ifndef CARWASH_MASINA_H
@@ -17,13 +18,15 @@ private:
 public:
     Masina();
     Masina(string,string,string,Persoana);
-    Masina(const Masina);
-    Masina operator=(const Masina);
+
     string getMarca();
     string getModel();
     string getNrMatriculare();
     string getProprietar();
     void setProprietar(Persoana);
+    friend bool operator==(Masina, Masina);
+    friend ostream& operator<<(ostream& out, const Masina& obj);
+    friend istream& operator>>(istream& in, Masina& obj);
     ~Masina();
 };
 

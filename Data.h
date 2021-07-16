@@ -1,19 +1,21 @@
 //
 // Created by andrei on 16.07.2021.
 //
-
+#include <iostream>
 #ifndef CARWASH_DATA_H
 #define CARWASH_DATA_H
+using namespace std;
 class Data{
-private:
+protected:
     unsigned int an;
     unsigned int zi;
     unsigned int luna;
 public:
     Data();
-    Data(int, int, int);
-    Data(const Data);
-    Data operator=(const Data);
+    Data(unsigned int,unsigned int,unsigned int);
+
+    friend bool operator==(Data, Data);
+    friend istream& operator>>(istream& in, Data& obj);
     ~Data();
 };
 

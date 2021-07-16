@@ -3,6 +3,7 @@
 //
 #include<string>
 #include "Data.h"
+#include <iostream>
 using namespace std;
 #ifndef CARWASH_PERSOANA_H
 #define CARWASH_PERSOANA_H
@@ -14,10 +15,12 @@ private:
 public:
     Persoana();
     Persoana(string,string,Data);
-    Persoana(const Persoana);
+    Persoana(const Persoana &obj);
     string getNume();
     string getPrenume();
-    Persoana operator=(const Persoana);
+    Persoana& operator=(const Persoana&);
+    friend bool operator==(Persoana,Persoana);
+    friend istream& operator>>(istream& in, Persoana& obj);
     ~Persoana();
 };
 #endif //CARWASH_PERSOANA_H

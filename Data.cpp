@@ -4,6 +4,7 @@
 //
 
 #include "Data.h"
+#include <iostream>
 using namespace std;
 
 Data::Data() {
@@ -18,18 +19,12 @@ Data::Data(unsigned int zi,unsigned int luna,unsigned int an) {
     this->an = an;
 }
 
-Data::Data(const Data obj){
-    this->zi = obj.zi;
-    this->luna = obj.luna;
-    this->an = obj.an;
+
+bool operator==(Data d1, Data d2){
+    return (d1.an == d2.an && d1.zi == d2.zi && d1.luna == d2.luna);
 }
-
-Data Data::operator=(const Data obj) {
-    this->zi = obj.zi;
-    this->luna = obj.luna;
-    this->an = obj.an;
-    return *this;
-
+istream& operator>>(istream& in, Data& obj){
+    in >> obj.zi >> obj.luna >> obj.an;
+    return in;
 }
-
 Data::~Data() {}
